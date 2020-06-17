@@ -1,5 +1,6 @@
 import api
 import globalPluginHandler
+import keyboardHandler
 import ui
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
@@ -25,6 +26,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             data = self.memory[keyCode]
             api.copyToClip(data)
             ui.message(f"Copied {data}")
+            # Paste the selected text
+            keyboardHandler.KeyboardInputGesture.fromName("CONTROL+V").send()
         except KeyError:
             ui.message("No data at this position")
 
