@@ -2,6 +2,7 @@ import api
 import globalPluginHandler
 import keyboardHandler
 import ui
+from scriptHandler import getLastScriptRepeatCount
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     memory = {}
@@ -24,10 +25,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         keyCode = gesture.vkCode
         try:
             data = self.memory[keyCode]
-            api.copyToClip(data)
-            ui.message(f"Copied {data}")
-            # Paste the selected text
-            keyboardHandler.KeyboardInputGesture.fromName("CONTROL+V").send()
+            if getLastScriptRepeatCount() == 0:
+                ui.message(data)
+            elif getLastScriptRepeatCount() >= 1:
+                api.copyToClip(data)
+                ui.message(f"Copied {data}")
+                # Paste the selected text
+                keyboardHandler.KeyboardInputGesture.fromName("CONTROL+V").send()
         except KeyError:
             ui.message("No data at this position")
 
