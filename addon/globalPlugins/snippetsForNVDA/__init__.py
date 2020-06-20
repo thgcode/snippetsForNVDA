@@ -12,8 +12,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     def script_saveToMemory(self, gesture):
         """When pressed, this key saves the selected text to this position on the NVDA memory."""
         focus = api.getFocusObject()
+        textInfo = None
         if focus.windowClassName in ["AkelEditW"] or focus.role in [controlTypes.ROLE_EDITABLETEXT]:
             textInfo = focus.makeTextInfo(textInfos.POSITION_SELECTION)
+        elif focus.treeInterceptor is not None:
+            textInfo = focus.treeInterceptor.makeTextInfo(textInfos.POSITION_SELECTION)
+        if textInfo is not None:
             text = textInfo.text
             if len(text) > 0:
                 keyCode = gesture.vkCode # Get which number the user pressed.
