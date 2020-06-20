@@ -1,9 +1,9 @@
-# snippetsForNVDA 0.0.1
+# snippetsForNVDA ${addon_version}
 Text snippet handling features for NVDA
 
 ## download
 
-Download the [Snippets for NVDA 0.0.1 addon](https://github.com/thgcode/snippetsForNVDA/releases/download/0.0.1/snippetsForNVDA-0.0.1.nvda-addon)
+Download the [Snippets for NVDA ${addon_version} addon](https://github.com/thgcode/snippetsForNVDA/releases/download/${addon_version}/snippetsForNVDA-${addon_version}.nvda-addon)
 
 ## Features
 
@@ -26,4 +26,4 @@ your selected text, otherwise it will be copied to that slot.
 
 # Contributing and translating
 
-If you want to contribute or translate this addon, please access the [project repository](https://github.com/thgcode/snippetsForNVDA) and find instructions on the contributing.md in the english documentation directory
+If you want to contribute or translate this addon, please access the [project repository](${addon_url}) and find instructions on the contributing.md in the english documentation directory
