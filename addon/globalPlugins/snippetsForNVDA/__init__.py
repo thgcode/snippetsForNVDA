@@ -46,6 +46,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
     # Maps all 10 numeric keyboard keys to the apropriate gesture.
     # It was done this way to avoid code repetition and to facilitate adding more commands in the future.
-    for keyboardKey in range(11):
+    for keyboardKey in range(10):
             __gestures[f"kb:NVDA+CONTROL+{keyboardKey}"] = "saveToMemory"
             __gestures[f"kb:NVDA+CONTROL+SHIFT+{keyboardKey}"] = "speakAndCopyMemory"
