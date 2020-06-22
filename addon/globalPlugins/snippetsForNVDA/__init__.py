@@ -42,6 +42,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
                 self.lastPressedKey = 0
                 # Paste the selected text
                 keyboardHandler.KeyboardInputGesture.fromName("CONTROL+V").send()
+            else:
+                self.lastPressedKey = 0
+                ui.message(data)
         except KeyError:
             ui.message("No data at this position")
             self.lastPressedKey = 0
