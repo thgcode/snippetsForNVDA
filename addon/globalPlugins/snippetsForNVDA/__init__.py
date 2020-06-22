@@ -36,7 +36,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             if getLastScriptRepeatCount() == 0:
                 ui.message(data)
                 self.lastPressedKey = keyCode
-            elif getLastScriptRepeatCount() >= 1 and self.isLastPressedKey(keyCode):
+            elif getLastScriptRepeatCount() == 1 and self.isLastPressedKey(keyCode):
                 api.copyToClip(data)
                 ui.message(f"Copied {data}")
                 self.lastPressedKey = 0
