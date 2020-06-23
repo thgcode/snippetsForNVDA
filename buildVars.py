@@ -21,7 +21,8 @@ addon_info = {
 To use the snippet memory slots function:
 Select some text.
 Press NVDA+CONTROL+numeric keys to copy the selected text to a memory slot.
-Press NVDA+CONTROL+SHIFT+numeric keys to paste the content of this memory slot to the running application."""),
+Press NVDA+CONTROL+SHIFT+numeric keys once  to hear the content of this memory slot.
+Press NVDA+CONTROL+SHIFT+numeric keys twice in a row to paste the content of this memory slot to the running application."""),
         # version
         "addon_version" : "1.0.0",
         # Author(s)
