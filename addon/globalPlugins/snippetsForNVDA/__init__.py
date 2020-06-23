@@ -8,6 +8,7 @@ from scriptHandler import getLastScriptRepeatCount
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     memory = {}
+    lastPressedKey = 0
 
     def script_saveToMemory(self, gesture):
         """When pressed, this key saves the selected text to this position on the NVDA memory."""
@@ -34,13 +35,22 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             data = self.memory[keyCode]
             if getLastScriptRepeatCount() == 0:
                 ui.message(data)
-            elif getLastScriptRepeatCount() >= 1:
+                self.lastPressedKey = keyCode
+            elif getLastScriptRepeatCount() == 1 and self.isLastPressedKey(keyCode):
                 api.copyToClip(data)
                 ui.message(f"Copied {data}")
+                self.lastPressedKey = 0
                 # Paste the selected text
                 keyboardHandler.KeyboardInputGesture.fromName("CONTROL+V").send()
+            else:
+                self.lastPressedKey = 0
+                ui.message(data)
         except KeyError:
             ui.message("No data at this position")
+            self.lastPressedKey = 0
+
+    def isLastPressedKey(self, keyCode):
+        return self.lastPressedKey == keyCode
 
     __gestures = {}
 
