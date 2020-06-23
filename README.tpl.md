@@ -22,7 +22,9 @@ paste text between applications.
     If there is data on the selected memory slot, it will be overwritten with
 your selected text, otherwise it will be copied to that slot.
 
-* Press NVDA+CONTROL+SHIFT+numeric keys to paste the content of this memory slot to the running application."""),
+* Press NVDA+CONTROL+SHIFT+numeric keys once  to hear the content of this memory slot.
+
+* Press NVDA+CONTROL+SHIFT+numeric keys twice in a row to paste the content of this memory slot to the running application."""),
 
 # Contributing and translating
 
