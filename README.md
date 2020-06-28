@@ -24,7 +24,7 @@ your selected text, otherwise it will be copied to that slot.
 
 * Press NVDA+CONTROL+SHIFT+numeric keys once  to hear the content of this memory slot.
 
-* Press NVDA+CONTROL+SHIFT+numeric keys twice in a row to paste the content of this memory slot to the running application.
+* Press NVDA+CONTROL+SHIFT+numeric keys twice quickly to paste the content of this memory slot to the running application.
 
 # Contributing and translating
 

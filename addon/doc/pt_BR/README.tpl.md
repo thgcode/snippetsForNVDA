@@ -18,11 +18,11 @@ Esse complemento inclui 10 posições de memória que você pode utilizar para c
 * Selecione algum texto.
 
 * Pressione NVDA+CONTROL+alguma tecla numérica para armazenar o texto nessa posição de memória.
-Se houver dados na posição de memória selecionada, eles serão substituídos pelo texto selecionado, caso contrário, serão copiados para essa posição.
+Se já houver dados nesta posição, serão substituídos pelo conteúdo da seleção.
 
 * Pressione NVDA+CONTROL+SHIFT+alguma tecla numérica uma vez para ouvir o conteúdo armazenado nessa posição de memória.
 
-* Pressione NVDA+CONTROL+SHIFT+alguma tecla numérica duas vezes seguidas para colar o conteúdo dessa posição de memória no aplicativo em execução.
+* Pressione NVDA+CONTROL+SHIFT+alguma tecla numérica duas vezes rapidamente para colar o conteúdo dessa posição de memória no aplicativo em execução.
 
 # Contribuindo e traduzindo
 

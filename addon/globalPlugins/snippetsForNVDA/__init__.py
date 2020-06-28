@@ -63,7 +63,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
     # Translators: the documentation of the speak and copy memory slot command, displayed on the input help mode.
     script_speakAndCopyMemory.__doc__ = _("""Pressing this key combination once , the content of this memory slot will be spoken.
-Pressing it twice in a row, the content of this memory slot will be pasted to the running application.""")
+Pressing it twice quickly, the content of this memory slot will be pasted to the running application.""")
 
     def isLastPressedKey(self, keyCode):
         return self.lastPressedKey == keyCode
