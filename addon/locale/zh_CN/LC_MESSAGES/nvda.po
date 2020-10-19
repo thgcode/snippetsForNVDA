@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the snippetsForNVDA package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: snippetsForNVDA 1.0.0\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2020-06-27 20:28-0300\n"
+"PO-Revision-Date: 2020-10-19 10:45+0800\n"
+"Language-Team: Rowen<manchen_0528@outlook.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.1\n"
+"Last-Translator: \n"
+"Language: zh_CN\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. Translators: This message is displayed when text is saved on a memory slot.
+#: addon\globalPlugins\snippetsForNVDA\__init__.py:35
+msgid "Saved"
+msgstr "已保存"
+
+#. Translators: the documentation of the save to memory slot command, displayed on the input help mode.
+#: addon\globalPlugins\snippetsForNVDA\__init__.py:40
+msgid "When pressed, this key saves the selected text to this memory slot."
+msgstr "将所选文本保存到该暂存区。"
+
+#. Translators: The message displayed when the user pasted this memory slot to an edit field.
+#: addon\globalPlugins\snippetsForNVDA\__init__.py:52
+#, python-brace-format
+msgid "Pasted {data}"
+msgstr "{data} 已粘贴"
+
+#. Translators: The message when the user checks a memory slot but there is no data in it
+#: addon\globalPlugins\snippetsForNVDA\__init__.py:61
+msgid "No data at this position"
+msgstr "无数据"
+
+#. Translators: the documentation of the speak and copy memory slot command, displayed on the input help mode.
+#: addon\globalPlugins\snippetsForNVDA\__init__.py:65
+msgid ""
+"Pressing this key combination once , the content of this memory slot will be "
+"spoken.\n"
+"Pressing it twice quickly, the content of this memory slot will be pasted to "
+"the running application."
+msgstr ""
+"按一次，读出该暂存区的内容。\n"
+"连按两次，将该暂存区的内容粘贴到可输入文本的位置"
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown on installation and add-on information.
+#: buildVars.py:17
+msgid "Text snippet handling features for NVDA"
+msgstr "NVDA的文本块处理功能"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:20
+msgid ""
+"This addon provides text snippet handling features to NVDA, including "
+"snippet memory slots and more.\n"
+"To use the snippet memory slots function:\n"
+"Select some text.\n"
+"Press NVDA+CONTROL+numeric keys to copy the selected text to a memory slot.\n"
+"Press NVDA+CONTROL+SHIFT+numeric keys once  to hear the content of this "
+"memory slot.\n"
+"Press NVDA+CONTROL+SHIFT+numeric keys twice quickly to paste the content of "
+"this memory slot to the running application."
+msgstr ""
+"该插件为NVDA提供了文本块处理功能，比如文本片段暂存区。\n"
+"要使用文本暂存区功能：\n"
+"先选择一部分文本，然后按 NVDA + CONTROL + 大键盘数字（ 1 到 0），将所选文本复"
+"制到暂存区。\n"
+"按 NVDA + CONTROL + SHIFT +大键盘数字，即可听到相应暂存区中的内容。\n"
+"连按两次 NVDA + CONTROL + SHIFT + 大键盘相应数字，将该暂存区的内容粘贴到可输"
+"入文本的位置。"
+
+#. Author(s)
+#. Translators: The people that have created snippetsForNVDA, shown on the manage addons dialog
+#: buildVars.py:30
+msgid "snippetsForNVDA contributors"
+msgstr "NVDA 贡献者摘要"
