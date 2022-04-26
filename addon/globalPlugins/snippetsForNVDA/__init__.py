@@ -1,11 +1,17 @@
 import addonHandler
 import api
-import controlTypes
 import globalPluginHandler
 import keyboardHandler
 import textInfos
 import ui
 from scriptHandler import getLastScriptRepeatCount
+
+# Fix compatibility with the new role constants introduced in NVDA 2022.1."""
+try:
+    from controlTypes import Role
+    ROLE_EDITABLETEXT = Role.EDITABLETEXT
+except ImportError:
+    from controlTypes import ROLE_EDITABLETEXT
 
 # Save the NVDA translation function so that we can use it if we need it
 nvdaTranslation = _
@@ -21,7 +27,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     def script_saveToMemory(self, gesture):
         focus = api.getFocusObject()
         textInfo = None
-        if focus.windowClassName in ["AkelEditW"] or focus.role in [controlTypes.ROLE_EDITABLETEXT]:
+        if focus.windowClassName in ["AkelEditW"] or focus.role in [ROLE_EDITABLETEXT]:
             textInfo = focus.makeTextInfo(textInfos.POSITION_SELECTION)
         elif focus.treeInterceptor is not None:
             textInfo = focus.treeInterceptor.makeTextInfo(textInfos.POSITION_SELECTION)
