@@ -2,16 +2,19 @@ import addonHandler
 import api
 import globalPluginHandler
 import keyboardHandler
+import mouseHandler
 import textInfos
 import ui
+import winUser
 from scriptHandler import getLastScriptRepeatCount
 
 # Fix compatibility with the new role constants introduced in NVDA 2022.1."""
 try:
     from controlTypes import Role
     ROLE_EDITABLETEXT = Role.EDITABLETEXT
+    ROLE_TERMINAL = Role.TERMINAL
 except ImportError:
-    from controlTypes import ROLE_EDITABLETEXT
+    from controlTypes import ROLE_EDITABLETEXT, ROLE_TERMINAL
 
 # Save the NVDA translation function so that we can use it if we need it
 nvdaTranslation = _
@@ -58,7 +61,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
                 ui.message(_("Pasted {data}").format(data=data))
                 self.lastPressedKey = 0
                 # Paste the selected text
-                keyboardHandler.KeyboardInputGesture.fromName("CONTROL+V").send()
+                self._paste()
             else:
                 self.lastPressedKey = 0
                 ui.message(data)
@@ -70,6 +73,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     # Translators: the documentation of the speak and copy memory slot command, displayed on the input help mode.
     script_speakAndCopyMemory.__doc__ = _("""Pressing this key combination once , the content of this memory slot will be spoken.
 Pressing it twice quickly, the content of this memory slot will be pasted to the running application.""")
+
+    def _paste(self):
+        focus = api.getFocusObject()
+        if focus.role == ROLE_TERMINAL and focus.appModule.appName == "cmd":
+            # Does a right click to trigger a paste on the console
+            mouseHandler.executeMouseEvent(winUser.MOUSEEVENTF_RIGHTDOWN,0,0)
+            mouseHandler.executeMouseEvent(winUser.MOUSEEVENTF_RIGHTUP,0,0)
+        else:
+            keyboardHandler.KeyboardInputGesture.fromName("CONTROL+V").send()
 
     def isLastPressedKey(self, keyCode):
         return self.lastPressedKey == keyCode
