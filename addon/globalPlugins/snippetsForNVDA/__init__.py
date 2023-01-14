@@ -10,8 +10,9 @@ from scriptHandler import getLastScriptRepeatCount
 try:
     from controlTypes import Role
     ROLE_EDITABLETEXT = Role.EDITABLETEXT
+    ROLE_DOCUMENT = Role.DOCUMENT
 except ImportError:
-    from controlTypes import ROLE_EDITABLETEXT
+    from controlTypes import ROLE_EDITABLETEXT, ROLE_DOCUMENT
 
 # Save the NVDA translation function so that we can use it if we need it
 nvdaTranslation = _
@@ -27,7 +28,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     def script_saveToMemory(self, gesture):
         focus = api.getFocusObject()
         textInfo = None
-        if focus.windowClassName in ["AkelEditW"] or focus.role in [ROLE_EDITABLETEXT]:
+        if focus.windowClassName in ["AkelEditW"] or focus.role in [ROLE_EDITABLETEXT, ROLE_DOCUMENT]:
             textInfo = focus.makeTextInfo(textInfos.POSITION_SELECTION)
         elif focus.treeInterceptor is not None:
             textInfo = focus.treeInterceptor.makeTextInfo(textInfos.POSITION_SELECTION)
