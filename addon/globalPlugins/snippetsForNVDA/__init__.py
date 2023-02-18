@@ -1,5 +1,6 @@
 import addonHandler
 import api
+import difflib
 import globalPluginHandler
 import keyboardHandler
 import textInfos
@@ -25,7 +26,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     memory = {}
     lastPressedKey = 0
 
-    def script_saveToMemory(self, gesture):
+    def _getSelectedText(self):
         focus = api.getFocusObject()
         textInfo = None
         if focus.windowClassName in ["AkelEditW"] or focus.role in [ROLE_EDITABLETEXT, ROLE_DOCUMENT]:
@@ -34,14 +35,25 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             textInfo = focus.treeInterceptor.makeTextInfo(textInfos.POSITION_SELECTION)
         if textInfo is not None:
             text = textInfo.text
-            if len(text) > 0:
-                keyCode = gesture.vkCode # Get which number the user pressed.
-                # The number will be in the range 48 to 57 inclusive, and we will use it to hash the data in the dictionary.
-                self.memory[keyCode] = text
-                # Translators: This message is displayed when text is saved on a memory slot.
-                ui.message(_("Saved"))
-            else:
-                ui.message(nvdaTranslation("No selection"))
+            return text
+
+        return None
+
+    def script_saveToMemory(self, gesture):
+        text = self._getSelectedText()
+
+        if text is None:
+            return
+
+        if len(text) > 0:
+            keyCode = gesture.vkCode # Get which number the user pressed.
+            # The number will be in the range 48 to 57 inclusive, and we will use it to hash the data in the dictionary.
+            self.memory[keyCode] = text
+            self.lastPressedKey = keyCode
+            # Translators: This message is displayed when text is saved on a memory slot.
+            ui.message(_("Saved"))
+        else:
+            ui.message(nvdaTranslation("No selection"))
 
     # Translators: the documentation of the save to memory slot command, displayed on the input help mode.
     script_saveToMemory.__doc__ = _("""When pressed, this key saves the selected text to this memory slot.""")
@@ -72,6 +84,24 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     script_speakAndCopyMemory.__doc__ = _("""Pressing this key combination once , the content of this memory slot will be spoken.
 Pressing it twice quickly, the content of this memory slot will be pasted to the running application.""")
 
+    def script_getSnippetDiffWithSelectedText(self, gesture):
+        text = self._getSelectedText()
+
+        if not text:
+            ui.message(nvdaTranslation("No selection"))
+            return
+
+        try:
+            data = self.memory[self.lastPressedKey]
+        except KeyError:
+            # Translators: The message when the user checks a memory slot but there is no data in it
+            ui.message(_("No data at this position"))
+            return
+
+        diff = difflib.unified_diff(data.splitlines(), text.splitlines())
+
+        ui.browseableMessage("\n".join(diff), "Diff", False)
+
     def isLastPressedKey(self, keyCode):
         return self.lastPressedKey == keyCode
 
@@ -80,5 +110,6 @@ Pressing it twice quickly, the content of this memory slot will be pasted to the
     # Maps all 10 numeric keyboard keys to the apropriate gesture.
     # It was done this way to avoid code repetition and to facilitate adding more commands in the future.
     for keyboardKey in range(10):
-            __gestures[f"kb:NVDA+CONTROL+{keyboardKey}"] = "saveToMemory"
-            __gestures[f"kb:NVDA+CONTROL+SHIFT+{keyboardKey}"] = "speakAndCopyMemory"
+        __gestures[f"kb:NVDA+CONTROL+{keyboardKey}"] = "saveToMemory"
+        __gestures[f"kb:NVDA+CONTROL+SHIFT+{keyboardKey}"] = "speakAndCopyMemory"
+    __gestures["kb:NVDA+CONTROL+SHIFT+D"] = "getSnippetDiffWithSelectedText"
