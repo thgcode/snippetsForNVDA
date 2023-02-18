@@ -24,7 +24,7 @@ Press NVDA+CONTROL+numeric keys to copy the selected text to a memory slot.
 Press NVDA+CONTROL+SHIFT+numeric keys once  to hear the content of this memory slot.
 Press NVDA+CONTROL+SHIFT+numeric keys twice quickly to paste the content of this memory slot to the running application."""),
         # version
-        "addon_version" : "1.0.4",
+        "addon_version" : "1.0.5",
         # Author(s)
         # Translators: The people that have created snippetsForNVDA, shown on the manage addons dialog
         "addon_author" : _("snippetsForNVDA contributors"),
@@ -35,7 +35,7 @@ Press NVDA+CONTROL+SHIFT+numeric keys twice quickly to paste the content of this
         # Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
         "addon_minimumNVDAVersion" : "2019.3.0",
         # Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-        "addon_lastTestedNVDAVersion" : "2022.1",
+        "addon_lastTestedNVDAVersion" : "2023.1",
         # Add-on update channel (default is None, denoting stable releases, and for development releases, use "dev"; do not change unless you know what you are doing)
         "addon_updateChannel" : None,
 }
