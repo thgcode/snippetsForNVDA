@@ -54,12 +54,21 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
                 ui.message(data)
                 self.lastPressedKey = keyCode
             elif getLastScriptRepeatCount() == 1 and self.isLastPressedKey(keyCode):
+                try:
+                    oldText = api.getClipData()
+                except OSError:
+                    oldText = None
+
                 api.copyToClip(data)
+
                 # Translators: The message displayed when the user pasted this memory slot to an edit field.
                 ui.message(_("Pasted {data}").format(data=data))
                 self.lastPressedKey = 0
                 # Paste the selected text
                 keyboardHandler.KeyboardInputGesture.fromName("CONTROL+V").send()
+
+                if oldText is not None:
+                    api.copyToClip(oldText)
             else:
                 self.lastPressedKey = 0
                 ui.message(data)
