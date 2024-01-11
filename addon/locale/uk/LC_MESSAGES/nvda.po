@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the 'snippetsForNVDA' package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 'snippetsForNVDA' '1.0.5'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2024-01-10 16:09+0200\n"
+"PO-Revision-Date: 2024-01-11 19:40+0200\n"
+"Last-Translator: Heorhii Halas <nvda.translation.uk@gmail.com>\n"
+"Language-Team: \n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. Translators: This message is displayed when text is saved on a memory slot.
+#: addon\globalPlugins\snippetsForNVDA\__init__.py:42
+msgid "Saved"
+msgstr "Збережено"
+
+#. Translators: the documentation of the save to memory slot command, displayed on the input help mode.
+#: addon\globalPlugins\snippetsForNVDA\__init__.py:47
+msgid "When pressed, this key saves the selected text to this memory slot."
+msgstr "При натисканні ця клавіша зберігає виділений текст у цей слот пам’яті."
+
+#. Translators: The message displayed when the user pasted this memory slot to an edit field.
+#: addon\globalPlugins\snippetsForNVDA\__init__.py:59
+#, python-brace-format
+msgid "Pasted {data}"
+msgstr "Вставлено {data}"
+
+#. Translators: The message when the user checks a memory slot but there is no data in it
+#: addon\globalPlugins\snippetsForNVDA\__init__.py:68
+msgid "No data at this position"
+msgstr "У цій позиції немає даних"
+
+#. Translators: the documentation of the speak and copy memory slot command, displayed on the input help mode.
+#: addon\globalPlugins\snippetsForNVDA\__init__.py:72
+msgid ""
+"Pressing this key combination once , the content of this memory slot will be "
+"spoken.\n"
+"Pressing it twice quickly, the content of this memory slot will be pasted to "
+"the running application."
+msgstr ""
+"Якщо натиснути цю комбінацію клавіш один раз, буде озвучено вміст цього "
+"слота пам’яті.\n"
+"Якщо натиснути швидко двічі, вміст цього слота пам’яті буде вставлено в "
+"запущену програму."
+
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on to be shown on installation and add-on information.
+#: buildVars.py:17
+msgid "Text snippet handling features for NVDA"
+msgstr "Функції обробки текстових фрагментів для NVDA"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:20
+msgid ""
+"This addon provides text snippet handling features to NVDA, including "
+"snippet memory slots and more.\n"
+"To use the snippet memory slots function:\n"
+"Select some text.\n"
+"Press NVDA+CONTROL+numeric keys to copy the selected text to a memory slot.\n"
+"Press NVDA+CONTROL+SHIFT+numeric keys once  to hear the content of this "
+"memory slot.\n"
+"Press NVDA+CONTROL+SHIFT+numeric keys twice quickly to paste the content of "
+"this memory slot to the running application."
+msgstr ""
+"Цей додаток надає NVDA функції обробки фрагментів тексту, включаючи слоти "
+"пам’яті для фрагментів тощо.\n"
+"Щоб скористатися функцією слотів пам’яті фрагментів:\n"
+"Виділіть текст.\n"
+"Натисніть NVDA+CONTROL+цифрові клавіші, щоб скопіювати виділений текст у "
+"слот пам’яті.\n"
+"Натисніть NVDA+CONTROL+SHIFT+цифрові клавіші один раз, щоб почути вміст "
+"цього слота пам’яті.\n"
+"Двічі швидко натисніть NVDA+CONTROL+SHIFT+цифрові клавіші, щоб вставити "
+"вміст цього слота пам’яті у запущену програму."
+
+#. Author(s)
+#. Translators: The people that have created snippetsForNVDA, shown on the manage addons dialog
+#: buildVars.py:30
+msgid "snippetsForNVDA contributors"
+msgstr "Учасники snippetsForNVDA"
