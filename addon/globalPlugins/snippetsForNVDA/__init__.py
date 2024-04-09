@@ -5,6 +5,7 @@ import keyboardHandler
 import textInfos
 import ui
 from scriptHandler import getLastScriptRepeatCount
+import json
 
 # Fix compatibility with the new role constants introduced in NVDA 2022.1."""
 try:
@@ -72,10 +73,24 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     script_speakAndCopyMemory.__doc__ = _("""Pressing this key combination once , the content of this memory slot will be spoken.
 Pressing it twice quickly, the content of this memory slot will be pasted to the running application.""")
 
+    def script_saveSnippets(self, gesture):
+        with open(os.path.join(config.getUserDefaultConfigPath(),"snippets.data"), "w") as file:
+            json.dump(self.memory, file)
+        ui.message(_("Snippets saved"))
+
+    script_saveSnippets.__doc__ = _("""Save the snippets to be used later""")
+
+    def script_loadSnippets(self, gesture):
+        with open(os.path.join(config.getUserDefaultConfigPath(),"snippets.data"), "r") as file:
+            self.memory = json.load(file)
+        ui.message(_("Snnipets loaded successfully"))
+
     def isLastPressedKey(self, keyCode):
         return self.lastPressedKey == keyCode
 
     __gestures = {}
+    __gestures["kb:NVDA+ALT+S"] = "saveSnippets"
+    __gestures["kb:NVDA+ALT+L"] = "loadSnippets"
 
     # Maps all 10 numeric keyboard keys to the apropriate gesture.
     # It was done this way to avoid code repetition and to facilitate adding more commands in the future.
