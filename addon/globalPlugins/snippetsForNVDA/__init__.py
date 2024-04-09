@@ -89,8 +89,8 @@ Pressing it twice quickly, the content of this memory slot will be pasted to the
         return self.lastPressedKey == keyCode
 
     __gestures = {}
-    __gestures["kb:NVDA+CONTROL+S"] = "saveSnippets"
-    __gestures["kb:NVDA+CONTROL+L"] = "loadSnippets"
+    __gestures["kb:NVDA+ALT+S"] = "saveSnippets"
+    __gestures["kb:NVDA+ALT+L"] = "loadSnippets"
 
     # Maps all 10 numeric keyboard keys to the apropriate gesture.
     # It was done this way to avoid code repetition and to facilitate adding more commands in the future.
