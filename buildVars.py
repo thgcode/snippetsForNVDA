@@ -24,7 +24,7 @@ Press NVDA+CONTROL+numeric keys to copy the selected text to a memory slot.
 Press NVDA+CONTROL+SHIFT+numeric keys once  to hear the content of this memory slot.
 Press NVDA+CONTROL+SHIFT+numeric keys twice quickly to paste the content of this memory slot to the running application."""),
         # version
-        "addon_version" : "1.0.8",
+        "addon_version" : "1.0.9",
         # Author(s)
         # Translators: The people that have created snippetsForNVDA, shown on the manage addons dialog
         "addon_author" : _("snippetsForNVDA contributors"),
