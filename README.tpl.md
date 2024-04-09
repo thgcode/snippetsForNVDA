@@ -26,6 +26,10 @@ your selected text, otherwise it will be copied to that slot.
 
 * Press NVDA+CONTROL+SHIFT+numeric keys twice quickly to paste the content of this memory slot to the running application.
 
+* Press NVDA+ALT+S to save the snippets to disk.
+
+* Press NVDA+ALT+L to load the previously saved snippets from disk."""),
+
 # Contributing and translating
 
 If you want to contribute or translate this addon, please access the [project repository](${addon_url}) and find instructions on the contributing.md in the english documentation directory

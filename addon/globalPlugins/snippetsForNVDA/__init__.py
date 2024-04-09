@@ -5,7 +5,9 @@ import keyboardHandler
 import textInfos
 import ui
 from scriptHandler import getLastScriptRepeatCount
+import config
 import json
+import os
 
 # Fix compatibility with the new role constants introduced in NVDA 2022.1."""
 try:
@@ -36,7 +38,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         if textInfo is not None:
             text = textInfo.text
             if len(text) > 0:
-                keyCode = gesture.vkCode # Get which number the user pressed.
+                keyCode = str(gesture.vkCode) # Get which number the user pressed.
                 # The number will be in the range 48 to 57 inclusive, and we will use it to hash the data in the dictionary.
                 self.memory[keyCode] = text
                 # Translators: This message is displayed when text is saved on a memory slot.
@@ -48,7 +50,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     script_saveToMemory.__doc__ = _("""When pressed, this key saves the selected text to this memory slot.""")
 
     def script_speakAndCopyMemory(self, gesture):
-        keyCode = gesture.vkCode
+        keyCode = str(gesture.vkCode)
         try:
             data = self.memory[keyCode]
             if getLastScriptRepeatCount() == 0:
@@ -84,6 +86,8 @@ Pressing it twice quickly, the content of this memory slot will be pasted to the
         with open(os.path.join(config.getUserDefaultConfigPath(),"snippets.data"), "r") as file:
             self.memory = json.load(file)
         ui.message(_("Snnipets loaded successfully"))
+
+    script_loadSnippets.__doc__ = _("""Loads previously saved snippets""")
 
     def isLastPressedKey(self, keyCode):
         return self.lastPressedKey == keyCode
