@@ -40,7 +40,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     def script_saveToMemory(self, gesture):
         focus = api.getFocusObject()
         textInfo = None
-        if focus.treeInterceptor is not None:
+        if focus.treeInterceptor is not None and not focus.treeInterceptor.passThrough:
             textInfo = focus.treeInterceptor.makeTextInfo(textInfos.POSITION_SELECTION)
         elif focus.windowClassName in ["AkelEditW"] or focus.role in [ROLE_EDITABLETEXT, ROLE_DOCUMENT]:
             textInfo = focus.makeTextInfo(textInfos.POSITION_SELECTION)
