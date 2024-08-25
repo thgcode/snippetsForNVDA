@@ -9,6 +9,15 @@ import config
 import json
 import os
 
+# Fix for the Russian keyboard layout -- We can't use
+# keyboardInputGesture.fromName() because it triggers a LookupError
+CTRLV = keyboardHandler.KeyboardInputGesture(
+{(17, False), (16, False)},
+86,
+		0,
+False
+)
+
 # Fix compatibility with the new role constants introduced in NVDA 2022.1."""
 try:
     from controlTypes import Role
@@ -62,7 +71,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
                 ui.message(_("Pasted {data}").format(data=data))
                 self.lastPressedKey = 0
                 # Paste the selected text
-                keyboardHandler.KeyboardInputGesture.fromName("CONTROL+V").send()
+                CTRLV.send()
             else:
                 self.lastPressedKey = 0
                 ui.message(data)
