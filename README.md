@@ -1,9 +1,9 @@
-# snippetsForNVDA 1.0.8
+# snippetsForNVDA 1.0.9
 Text snippet handling features for NVDA
 
 ## download
 
-Download the [Snippets for NVDA 1.0.8 addon](https://github.com/thgcode/snippetsForNVDA/releases/download/1.0.8/snippetsForNVDA-1.0.8.nvda-addon)
+Download the [Snippets for NVDA 1.0.9 addon](https://github.com/thgcode/snippetsForNVDA/releases/download/1.0.9/snippetsForNVDA-1.0.9.nvda-addon)
 
 ## Features
 
@@ -25,6 +25,10 @@ your selected text, otherwise it will be copied to that slot.
 * Press NVDA+CONTROL+SHIFT+numeric keys once  to hear the content of this memory slot.
 
 * Press NVDA+CONTROL+SHIFT+numeric keys twice quickly to paste the content of this memory slot to the running application.
+
+* Press NVDA+ALT+S to save the snippets to disk.
+
+* Press NVDA+ALT+L to load the previously saved snippets from disk."""),
 
 # Contributing and translating
 
