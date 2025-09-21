@@ -1,9 +1,9 @@
-# snippetsForNVDA 1.0.9
+# snippetsForNVDA 1.0.10
 Text snippet handling features for NVDA
 
 ## download
 
-Download the [Snippets for NVDA 1.0.9 addon](https://github.com/thgcode/snippetsForNVDA/releases/download/1.0.9/snippetsForNVDA-1.0.9.nvda-addon)
+Download the [Snippets for NVDA 1.0.10 addon](https://github.com/thgcode/snippetsForNVDA/releases/download/1.0.10/snippetsForNVDA-1.0.10.nvda-addon)
 
 ## Features
 

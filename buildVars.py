@@ -26,7 +26,7 @@ Press NVDA+CONTROL+SHIFT+numeric keys twice quickly to paste the content of this
 Press NVDA+ALT+S to save the snippets to disk.
 Press NVDA+ALT+L to load the previously saved snippets from disk."""),
         # version
-        "addon_version" : "1.0.9",
+        "addon_version" : "1.0.10",
         # Author(s)
         # Translators: The people that have created snippetsForNVDA, shown on the manage addons dialog
         "addon_author" : _("snippetsForNVDA contributors"),
@@ -37,7 +37,7 @@ Press NVDA+ALT+L to load the previously saved snippets from disk."""),
         # Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
         "addon_minimumNVDAVersion" : "2019.3.0",
         # Last NVDA version supported/tested (e.g. "2018.4.0", ideally more recent than minimum version)
-        "addon_lastTestedNVDAVersion" : "2024.1",
+        "addon_lastTestedNVDAVersion" : "2025.3",
         # Add-on update channel (default is None, denoting stable releases, and for development releases, use "dev"; do not change unless you know what you are doing)
         "addon_updateChannel" : None,
 }
