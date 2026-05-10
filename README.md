@@ -3,7 +3,7 @@ Text snippet handling features for NVDA
 
 ## download
 
-Download the [Snippets for NVDA 1.0.10 addon](https://github.com/thgcode/snippetsForNVDA/releases/download/1.0.10/snippetsForNVDA-1.0.10.nvda-addon)
+Download the [Snippets for NVDA 1.0.11 addon](https://github.com/thgcode/snippetsForNVDA/releases/download/1.0.11/snippetsForNVDA-1.0.11.nvda-addon)
 
 ## Features
 
