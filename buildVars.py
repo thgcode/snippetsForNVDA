@@ -3,8 +3,9 @@
 # Build customizations
 # Change this file instead of sconstruct or manifest files, whenever possible.
 
-# Full getext (please don't change)
-_ = lambda x : x
+from site_scons.site_tools.NVDATool.typings import AddonInfo, BrailleTables, SymbolDictionaries
+from site_scons.site_tools.NVDATool.utils import _
+
 
 # Add-on information variables
 addon_info = {
@@ -25,6 +26,8 @@ Press NVDA+CONTROL+SHIFT+numeric keys once  to hear the content of this memory s
 Press NVDA+CONTROL+SHIFT+numeric keys twice quickly to paste the content of this memory slot to the running application.
 Press NVDA+ALT+S to save the snippets to disk.
 Press NVDA+ALT+L to load the previously saved snippets from disk."""),
+        # Translators: what's new text for this add-on version shown in add-on store.
+        "addon_changelog": _("""NVDA 2026.1 compatibility."""),
         # version
         "addon_version" : "1.0.11",
         # Author(s)
@@ -41,17 +44,17 @@ Press NVDA+ALT+L to load the previously saved snippets from disk."""),
         # Add-on update channel (default is None, denoting stable releases, and for development releases, use "dev"; do not change unless you know what you are doing)
         "addon_updateChannel" : None,
 }
+pythonSources: list[str] = ["addon/globalPlugins/snippetsForNVDA/*.py"]
+i18nSources: list[str] = pythonSources + ["buildVars.py"]
 
+# Paths are relative to the addon directory when building the bundle.
+excludedFiles: list[str] = [
+    "doc/*/contributing*.*",
+    "doc/*/*.tpl.md",
+]
 
-import os.path
+baseLanguage: str = "en"
+markdownExtensions: list[str] = []
 
-# Define the python files that are the sources of your add-on.
-# You can use glob expressions here, they will be expanded.
-pythonSources = [os.path.join("addon", "globalPlugins", "snippetsForNVDA", "*.py")]
-
-# Files that contain strings for translation. Usually your python sources
-i18nSources = pythonSources + ["buildVars.py"]
-
-# Files that will be ignored when building the nvda-addon file
-# Paths are relative to the addon directory, not to the root directory of your addon sources.
-excludedFiles = [os.path.join("addon", "doc", "*", "contributing*.*")]
+brailleTables: BrailleTables = {}
+symbolDictionaries: SymbolDictionaries = {}
